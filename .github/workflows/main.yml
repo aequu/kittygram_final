@@ -73,8 +73,16 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Install test dependencies
-        run: pip install pytest
+      - name: Install system dependencies for Pillow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libjpeg-dev \
+            zlib1g-dev \
+            libpng-dev
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
 
       - name: Run project structure tests
         run: python -m pytest tests/ -v
