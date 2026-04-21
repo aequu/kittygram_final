@@ -85,7 +85,7 @@ jobs:
         run: pip install -r backend/requirements.txt
 
       - name: Run project structure tests
-        run: python -m pytest
+        run: python -m pytest tests/ -v
 
   build_backend_and_push_to_docker_hub:
     name: Push Docker image to DockerHub
@@ -158,4 +158,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: Деплой успешно выполнен!
+        message: GitHub WorkFlow успешно завершен!
