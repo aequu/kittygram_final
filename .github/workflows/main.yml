@@ -85,7 +85,7 @@ jobs:
         run: pip install -r backend/requirements.txt
 
       - name: Run project structure tests
-        run: python 
+        run: python -m pytest
 
   build_backend_and_push_to_docker_hub:
     name: Push Docker image to DockerHub
