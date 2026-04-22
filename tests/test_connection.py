@@ -60,7 +60,7 @@ def _get_js_link(response: requests.Response) -> Optional[str]:
     return search_result.group(0) if search_result else None
 
 
-@pytest.xfail
+@pytest.mark.xfail()
 def test_link_connection(
         deploy_file_info: tuple[Path, str],
         deploy_info_file_content: dict[str, str],
@@ -93,7 +93,7 @@ def test_link_connection(
         assert taski_project_name in taski_response.text, assert_msg
 
 
-@pytest.xfail
+@pytest.mark.xfail()
 def test_projects_on_same_ip(
         deploy_file_info: tuple[Path, str],
         deploy_info_file_content: dict[str, str],
@@ -115,7 +115,7 @@ def test_projects_on_same_ip(
     )
 
 
-@pytest.xfail
+@pytest.mark.xfail()
 def test_kittygram_static_is_available(
         deploy_file_info: tuple[Path, str],
         deploy_info_file_content: dict[str, str],
@@ -138,7 +138,7 @@ def test_kittygram_static_is_available(
     assert js_link_response.status_code == expected_status, assert_msg
 
 
-@pytest.xfail
+@pytest.mark.xfail()
 def test_kittygram_api_available(
         deploy_file_info: tuple[Path, str],
         deploy_info_file_content: dict[str, str],
