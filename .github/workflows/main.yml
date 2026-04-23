@@ -28,10 +28,10 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
-        env: DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}
         script: |
           set -e
           cd kittygram
+          export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
           docker-compose -f docker-compose.production.yml pull
           docker-compose -f docker-compose.production.yml down
           docker-compose -f docker-compose.production.yml up -d
