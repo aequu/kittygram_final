@@ -45,5 +45,5 @@ jobs:
           docker-compose -f docker-compose.production.yml up -d
           sleep 5
           docker-compose -f docker-compose.production.yml exec -T backend python manage.py migrate
-          docker-compose -f docker-compose.production.yml exec -T backend python manage.py collectstatic
+          docker-compose -f docker-compose.production.yml exec -T backend python manage.py collectstatic --noinput
           docker-compose -f docker-compose.production.yml exec -T backend cp -r /app/collected_static/. /static/static/
