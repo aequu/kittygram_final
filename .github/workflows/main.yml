@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 jobs:    
- build_backend_and_push_to_docker_hub:
+  build_backend_and_push_to_docker_hub:
     name: Push backend Docker image to DockerHub
     runs-on: ubuntu-latest
     needs: testing
@@ -27,7 +27,7 @@ jobs:
           context: ./backend/
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_backend:latest
-    deploy:
+  deploy:
     runs-on: ubuntu-latest
     needs: build_backend_and_push_to_docker_hub
     steps:
