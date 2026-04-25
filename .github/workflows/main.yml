@@ -39,6 +39,7 @@ jobs:
           DB_HOST=db
           DB_PORT=5432
           DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+          ALLOWED_HOSTS=157.22.196.19
           EOF
           docker-compose -f docker-compose.production.yml pull
           docker-compose -f docker-compose.production.yml down
