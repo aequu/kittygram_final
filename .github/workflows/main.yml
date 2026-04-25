@@ -31,8 +31,15 @@ jobs:
         script: |
           set -e
           cd kittygram
-          touch .env
-          export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+          cat > .env << EOF
+          POSTGRES_DB=kittygram
+          POSTGRES_USER=kittygram_user
+          POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+          DB_NAME=kittygram
+          DB_HOST=db
+          DB_PORT=5432
+          DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+          EOF
           docker-compose -f docker-compose.production.yml pull
           docker-compose -f docker-compose.production.yml down
           docker-compose -f docker-compose.production.yml up -d
