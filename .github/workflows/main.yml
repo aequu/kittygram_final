@@ -48,6 +48,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        timeout: 300s
         script: |
           set -e
           cd kittygram
