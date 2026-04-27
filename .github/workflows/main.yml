@@ -87,6 +87,7 @@ jobs:
           docker-compose -f docker-compose.production.yml pull
           docker-compose -f docker-compose.production.yml down
           docker-compose -f docker-compose.production.yml up -d
+          docker-compose -f docker-compose.production.yml exec -T frontend cp -r /app/build/. /static/
           sleep 5
           docker-compose -f docker-compose.production.yml exec -T backend python manage.py migrate
           echo "migrate"
