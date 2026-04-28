@@ -1,3 +1,4 @@
 repo_owner: aequu
-kittygram_domain: http://157.22.196.19
+kittygram_domain: http://157.22.196.19:8000
+taski_domain: http://157.22.196.19:8000
 dockerhub_username: aequu
