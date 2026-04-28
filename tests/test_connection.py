@@ -4,7 +4,6 @@ from http import HTTPStatus
 from pathlib import Path
 from typing import Optional
 
-import pytest
 import requests
 
 
